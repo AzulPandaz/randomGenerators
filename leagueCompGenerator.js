@@ -19,11 +19,11 @@ let message
 
 generateTeam.addEventListener('click',(e)=>{
     e.preventDefault
-    let = tIdx = Math.floor(Math.random() * topLaners.length);
-    let = jIdx = Math.floor(Math.random() * jungles.length);
-    let = mIdx = Math.floor(Math.random() * midLaners.length);
-    let = aIdx = Math.floor(Math.random() * botLaners.length);
-    let = sIdx = Math.floor(Math.random() * supports.length);
+    let tIdx = Math.floor(Math.random() * topLaners.length);
+    let jIdx = Math.floor(Math.random() * jungles.length);
+    let mIdx = Math.floor(Math.random() * midLaners.length);
+    let aIdx = Math.floor(Math.random() * botLaners.length);
+    let sIdx = Math.floor(Math.random() * supports.length);
 
     let top = topLaners[tIdx]
     let jung = jungles[jIdx]
