@@ -137,8 +137,11 @@ adj = adjectives[adjIdx];
 wealth = wealthStatus[wealthIdx];
 alignmentChart = alignmentCharts[alignmentChartIdx];
 
-message = `The character generated for you is a ${race} ,${classDND} that is always, ${adj}, and was born into ${wealth}, and is ${alignmentChart}`
-console.log(message);
+function dNDCharacterGenerator(){
+    message = `The character generated for you is a ${race} ,${classDND} that is always, ${adj}, and was born into ${wealth}, and is ${alignmentChart}`
+    console.log(message);
+}
+
 
 
 /*
@@ -164,34 +167,97 @@ BUild a random Team Comp Generator
     supportIdx
 */
 
-var topLaners = ['Camille', 'Darius', 'Gnar', 'Lee Sin', 'Nocturne', 'Renekton', 'Wukong', 'Shen', 'Cho’Gath', 'Fiora', 'Gangplank', 'Gragas', 'Jax', 'Kennen', 'Malphite', 'Mordekaiser', 'Ornn', 'Riven', 'Sion', 'Sylas', 'Urgot', 'Volibear', 'Yorick', 'Aatrox', 'Dr. Mundo', 'Garen', 'Heimerdinger', 'Illaoi', 'Jayce', 'Kayle', 'Kled', 'Mao’kai', 'Poppy', 'Quinn', 'Rumble', 'Sett', 'Vladimir', 'Teemo', 'Yasuo', 'Akali', 'Irelia', 'Nasus', 'Singed', 'Tahm Kench', 'Tryndamere', 'Vayne', 'Viego', 'Warwick', 'Yone', 'Gwen']
-var jungles = ['Ekko', 'Evelynn', 'Shaco', 'Fiddlesticks', 'Graves', 'Amumu', 'Master Yi', 'Nocturne', 'Rammus', 'Trundle', 'Vi', 'Warwick', 'Zac', 'Elise', 'Kha’Zix', 'Lillia', 'Mordekasier', 'Poppy', 'Dr. Mundo', 'Hecarim', 'Jarvan IV', 'Nunu + Willump', 'Shyvana', 'Skarner', 'Volibear', 'Xin Zhao', 'Kindred', 'Rek’Sai', 'Talon', 'Gragas', 'Kayn', 'Udyr', 'Viego', 'Diana', 'Jax', 'Sejuani']
-var midLaners= ['Yasuo', 'Akshan', 'Fizz', 'Graves',  'Kayle', 'Vex', 'Annie', 'Lux', 'Malzahar', 'Katarina', 'Anivia', 'Ekko', 'Viktor', 'Xerath', 'Yone', 'Ahri', 'Corki', 'Pantheon', 'Sett', 'Swain', 'Brand', 'Diana', 'Irelia', 'Sylas', 'Zed', 'Cassiopeia', 'Talon', 'Vel’Koz', 'Vladimir', 'Swain', 'Lissandra', 'Malphite', 'Morgana', 'Neeko', 'Seraphine', 'Tryndamere', 'Veigar', 'Ziggs', 'Akshan', 'Vex']
-var attackDamageCarries = ['Draven', 'Vayne', 'Jhin', 'Ashe', 'Jinx', 'Miss Fortune', 'Sivir', 'Ezreal', 'Kai’Sa', 'Lucian', 'Samira', 'Kog’Maw', 'Twitch', 'Seraphine', 'Yasuo', 'Caitlyn', 'Senna', 'Xayah', 'Tristana']
-var supports = [ 'Zilean', 'Amumu', 'Blitzcrank', 'Leona', 'Morgana', 'Lux', 'Morgana', 'Nami', 'Sona', 'Soraka', 'Zyra', 'Xerath', 'Alistar', 'Braum', 'Lulu', 'Janna', 'Karma', 'Maokai', 'Nautilus', 'Rell', 'Yuumi', 'Pyke', 'Thresh', 'Bard', 'Rakan', 'Shaco', 'Taliyah', 'Vel’koz', 'Senna', 'Swain', 'Taric', 'Seraphine']
+// VERSION 1.0
+// var topLaners = ['Camille', 'Darius', 'Gnar', 'Lee Sin', 'Nocturne', 'Renekton', 'Wukong', 'Shen', 'Cho’Gath', 'Fiora', 'Gangplank', 'Gragas', 'Jax', 'Kennen', 'Malphite', 'Mordekaiser', 'Ornn', 'Riven', 'Sion', 'Sylas', 'Urgot', 'Volibear', 'Yorick', 'Aatrox', 'Dr. Mundo', 'Garen', 'Heimerdinger', 'Illaoi', 'Jayce', 'Kayle', 'Kled', 'Mao’kai', 'Poppy', 'Quinn', 'Rumble', 'Sett', 'Vladimir', 'Teemo', 'Yasuo', 'Akali', 'Irelia', 'Nasus', 'Singed', 'Tahm Kench', 'Tryndamere', 'Vayne', 'Viego', 'Warwick', 'Yone', 'Gwen']
+// var jungles = ['Ekko', 'Evelynn', 'Shaco', 'Fiddlesticks', 'Graves', 'Amumu', 'Master Yi', 'Nocturne', 'Rammus', 'Trundle', 'Vi', 'Warwick', 'Zac', 'Elise', 'Kha’Zix', 'Lillia', 'Mordekasier', 'Poppy', 'Dr. Mundo', 'Hecarim', 'Jarvan IV', 'Nunu + Willump', 'Shyvana', 'Skarner', 'Volibear', 'Xin Zhao', 'Kindred', 'Rek’Sai', 'Talon', 'Gragas', 'Kayn', 'Udyr', 'Viego', 'Diana', 'Jax', 'Sejuani']
+// var midLaners= ['Yasuo', 'Akshan', 'Fizz', 'Graves',  'Kayle', 'Vex', 'Annie', 'Lux', 'Malzahar', 'Katarina', 'Anivia', 'Ekko', 'Viktor', 'Xerath', 'Yone', 'Ahri', 'Corki', 'Pantheon', 'Sett', 'Swain', 'Brand', 'Diana', 'Irelia', 'Sylas', 'Zed', 'Cassiopeia', 'Talon', 'Vel’Koz', 'Vladimir', 'Swain', 'Lissandra', 'Malphite', 'Morgana', 'Neeko', 'Seraphine', 'Tryndamere', 'Veigar', 'Ziggs', 'Akshan', 'Vex']
+// var attackDamageCarries = ['Draven', 'Vayne', 'Jhin', 'Ashe', 'Jinx', 'Miss Fortune', 'Sivir', 'Ezreal', 'Kai’Sa', 'Lucian', 'Samira', 'Kog’Maw', 'Twitch', 'Seraphine', 'Yasuo', 'Caitlyn', 'Senna', 'Xayah', 'Tristana']
+// var supports = [ 'Zilean', 'Amumu', 'Blitzcrank', 'Leona', 'Morgana', 'Lux', 'Morgana', 'Nami', 'Sona', 'Soraka', 'Zyra', 'Xerath', 'Alistar', 'Braum', 'Lulu', 'Janna', 'Karma', 'Maokai', 'Nautilus', 'Rell', 'Yuumi', 'Pyke', 'Thresh', 'Bard', 'Rakan', 'Shaco', 'Taliyah', 'Vel’koz', 'Senna', 'Swain', 'Taric', 'Seraphine']
 
-var message;
+// var message;
 
-var topLanerIdx
-var jungleIdx
-var midLanerIdx
-var adcIdx
-var supportIdx
+// var topLanerIdx
+// var jungleIdx
+// var midLanerIdx
+// var adcIdx
+// var supportIdx
 
-topLanerIdx = Math.floor(Math.random() * topLaners.length);
-jungleIdx = Math.floor(Math.random() * jungles.length);
-midLanerIdx = Math.floor(Math.random() * midLaners.length);
-adcIdx = Math.floor(Math.random() * attackDamageCarries.length);
-supportIdx = Math.floor(Math.random() * supports.length);
+// topLanerIdx = Math.floor(Math.random() * topLaners.length);
+// jungleIdx = Math.floor(Math.random() * jungles.length);
+// midLanerIdx = Math.floor(Math.random() * midLaners.length);
+// adcIdx = Math.floor(Math.random() * attackDamageCarries.length);
+// supportIdx = Math.floor(Math.random() * supports.length);
 
-var toplane, midLane, jungle, attackDamageCarry, support
+// var toplane, midLane, jungle, attackDamageCarry, support
 
-toplane = topLaners[topLanerIdx];
-jungle = jungles[jungleIdx];
-midLane = midLaners[midLanerIdx];
-attackDamageCarry = attackDamageCarries[adcIdx];
-support = supports[supportIdx];
+// toplane = topLaners[topLanerIdx];
+// jungle = jungles[jungleIdx];
+// midLane = midLaners[midLanerIdx];
+// attackDamageCarry = attackDamageCarries[adcIdx];
+// support = supports[supportIdx];
 
-message = `Your team comp is made up of ${toplane} in the top lane, ${jungle} in the jungle, ${midLane} in the mid lane, ${attackDamageCarry} in the ADC role, and ${support} in the support role, here is your team comp have fun!`
+// function teamCompGenerator(){
+//     message = `Your team comp is made up of ${toplane} in the top lane, ${jungle} in the jungle, ${midLane} in the mid lane, ${attackDamageCarry} in the ADC role, and ${support} in the support role, here is your team comp have fun!`
+//     console.log(message);
+// }
 
-console.log(message);
+
+console.clear();
+
+var attackDamageCarries = [['Draven', "Kog’Maw"],
+['Vayne', "Caitlyn"],
+['Jhin',  "Vayne"]
+, ['Ashe',  "Yasuo"]
+, ['Jinx', "Jhin"]
+, ['Miss Fortune',"Ziggs"]
+, ['Sivir', "Vayne"]
+, 'Ezreal'
+, ['Kai’Sa', "Xayah"]
+, ['Lucian',  "Caitlyn"]
+, ['Samira', "Jinx"]
+, ['Kog’Maw',  "Ziggs"]
+, ['Twitch',  "Draven"]
+, ['Seraphine', "Senna"]
+, ['Yasuo',  "Vayne"]
+, ['Caitlyn',  "Ziggs"]
+, ['Senna',  "Draven"]
+, ['Xayah', "Ashe"]
+, ['Tristana', "Kog’Maw"]]
+
+/*
+if(badMatchUps[idx].length=== 1){
+    message = `There is no bad match ups for ${badMatchUps[idx][0]}`
+}else {
+    message = `${badMatchUps[idx][0]} oh there bad match ups are ${badMatchUps[idx][1]}!`;
+}
+
+*/
+var question;
+var response;
+var brennen;
+var Micheal;
+
+function crazyQuestion(who){
+    if( brennen == who){
+        message = "No"
+    } else if ( who == Micheal)
+        message = "Maybe cause you know the possiblities"
+}
+crazyQuestion(brennen)
+console.log(message)
+
+console.clear()
+
+function badMatchUps(){
+    if(attackDamageCarries[adcIdx].length === 1){
+        message = `There is no bad match ups for ${attackDamageCarries[idx][0]}`
+    } else{ message =`${attackDamageCarries[adcIdx][0]} oh there bad match up is ${attackDamageCarries[adcIdx][1]}!`
+    }
+    console.log(message);
+}
+
+
+teamCompGenerator();
+badMatchUps();
+dNDCharacterGenerator();
+
