@@ -1,0 +1,31 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0px;
+    padding: 0;
+    background-color: silver;
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+    height: 100px;
+    background-color: darkcyan;
+}
+
+#generateTeam{
+    background-color: paleturquoise;
+    font-family: monospace;
+    font-size: 32px;
+}
+
+main{
+    /* display: flex; */
+    /* justify-content: center; */
+    background-color: silver;
+}
+.main h2, main h1{
+    text-align: center;
+}

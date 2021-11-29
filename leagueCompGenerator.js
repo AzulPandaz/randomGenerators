@@ -15,7 +15,7 @@ botlane = document.getElementById('botLane'),
 support = document.getElementById('support'),
 teamButton = document.getElementById('generateTeam'),
 messageTest = document.getElementById('messageTest')
-let message
+let message;
 
 generateTeam.addEventListener('click',(e)=>{
     e.preventDefault
